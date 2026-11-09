@@ -1,0 +1,39 @@
+1個
+https://www.switch-science.com/products/5681
+1
+https://www.switch-science.com/products/5959
+1
+https://akizukidenshi.com/catalog/g/g114935/
+1
+https://akizukidenshi.com/catalog/g/g105840/
+1
+https://akizukidenshi.com/catalog/g/g100315/
+1
+https://akizukidenshi.com/catalog/g/g125331/
+5
+https://akizukidenshi.com/catalog/g/g111577/
+5
+https://akizukidenshi.com/catalog/g/g103647/
+
+1
+https://akizukidenshi.com/catalog/g/g108934
+1
+https://akizukidenshi.com/catalog/g/g108933
+
+商品	数	単価	小計
+Raspberry Pi 4 Model B / 2GB	1	14,630円	14,630円
+Raspberry Pi 4 用オフィシャルケース 赤/白	1	1,100円	1,100円
+		小計	15,730円
+秋月電子
+商品	数	単価	小計
+ACアダプター 5.1V/3.8A USB Type-C	1	1,250円	1,250円
+FTDI USBシリアル変換ケーブル 3.3V（TTL-232R-3V3）	1	3,980円	3,980円
+ジャンパワイヤ オス-メス 15cm 10本（赤、黒、他2色）	各1（計4）	280円	1,120円
+タクトスイッチ 黒	5	15円	75円
+3mm 赤色LED	5	10円	50円
+330Ω 抵抗 1/4W 100本	1	200円	200円
+ブレッドボード EIC-801	1	450円	450円
+		小計	7,125円
+合計
+
+22,855円＋送料2回分（任意のものを入れると23,505円＋送料）
