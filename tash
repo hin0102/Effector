@@ -1,0 +1,53 @@
+[1mdiff --git a/lib/usb/usbaudiostreaming.cpp b/lib/usb/usbaudiostreaming.cpp[m
+[1mindex 2f23a62c..177db6ba 100644[m
+[1m--- a/lib/usb/usbaudiostreaming.cpp[m
+[1m+++ b/lib/usb/usbaudiostreaming.cpp[m
+[36m@@ -216,7 +216,7 @@[m [mboolean CUSBAudioStreamingDevice::Initialize (void)[m
+ 	if (GetInterfaceProtocol () != USB_PROTO_AUDIO_VER_200)[m
+ 	{[m
+ 		if (   (nChannels && pFormatTypeDesc->Ver100.bNrChannels != nChannels)[m
+[31m-		    || pFormatTypeDesc->Ver100.bSubframeSize != m_nSubframeSize[m
+[32m+[m		[32m    || pFormatTypeDesc->Ver100.bSubframeSize < m_nSubframeSize[m
+ 		    || pFormatTypeDesc->Ver100.bBitResolution != m_nBitResolution)[m
+ 		{[m
+ 			LOGDBG ("Ignore interface (%u chans, %u bits, %u bytes)",[m
+[36m@@ -230,7 +230,7 @@[m [mboolean CUSBAudioStreamingDevice::Initialize (void)[m
+ 	else[m
+ 	{[m
+ 		if (   (nChannels && pAudioInterfaceDesc->Ver200.bNrChannels != nChannels)[m
+[31m-		    || pFormatTypeDesc->Ver200.bSubslotSize != m_nSubframeSize[m
+[32m+[m		[32m    || pFormatTypeDesc->Ver200.bSubslotSize < m_nSubframeSize[m
+ 		    || pFormatTypeDesc->Ver200.bBitResolution != m_nBitResolution)[m
+ 		{[m
+ 			LOGDBG ("Ignore interface (%u chans, %u bits, %u bytes)",[m
+[36m@@ -303,7 +303,7 @@[m [mboolean CUSBAudioStreamingDevice::Configure (void)[m
+ 	{[m
+ 		if (   pFormatTypeDesc->bFormatType           != USB_AUDIO_FORMAT_TYPE_I[m
+ 		    || pFormatTypeDesc->Ver100.bNrChannels    == 0[m
+[31m-		    || pFormatTypeDesc->Ver100.bSubframeSize  != m_nSubframeSize[m
+[32m+[m		[32m    || pFormatTypeDesc->Ver100.bSubframeSize  < m_nSubframeSize[m
+ 		    || pFormatTypeDesc->Ver100.bBitResolution != m_nBitResolution)[m
+ 		{[m
+ 			LOGWARN ("Unsupported audio format");[m
+[36m@@ -315,11 +315,12 @@[m [mboolean CUSBAudioStreamingDevice::Configure (void)[m
+ 		}[m
+ [m
+ 		m_nChannels = pFormatTypeDesc->Ver100.bNrChannels;[m
+[32m+[m		[32mm_nSubframeSize = pFormatTypeDesc->Ver100.bSubframeSize;[m
+ 	}[m
+ 	else[m
+ 	{[m
+ 		if (   pFormatTypeDesc->bFormatType           != USB_AUDIO_FORMAT_TYPE_I[m
+[31m-		    || pFormatTypeDesc->Ver200.bSubslotSize   != m_nSubframeSize[m
+[32m+[m		[32m    || pFormatTypeDesc->Ver200.bSubslotSize   < m_nSubframeSize[m
+ 		    || pFormatTypeDesc->Ver200.bBitResolution != m_nBitResolution[m
+ 		    || pGeneralDesc->Ver200.bNrChannels       == 0)[m
+ 		{[m
+[36m@@ -333,6 +334,7 @@[m [mboolean CUSBAudioStreamingDevice::Configure (void)[m
+ 		}[m
+ [m
+ 		m_nChannels = pGeneralDesc->Ver200.bNrChannels;[m
+[32m+[m		[32mm_nSubframeSize = pFormatTypeDesc->Ver200.bSubslotSize;[m
+ 	}[m
+ [m
+ 	if (   m_bIsOutput[m
